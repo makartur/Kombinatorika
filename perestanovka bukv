@@ -1,1 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          Сards("solo");
+        }
+        static void Cards(string s)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = 0; j < str.Length; j++)
+                {
+                    if ((int)str[j] > (int)str[i])
+                    {
+                        var c = str[i];
+                        str[i] = str[j];
+                        str[j] = c;
+                    }
+                }
+            }
+            string[] mass = new string[20];
+            List<char> checkedStr = new List<char>();
+            int iM = 0;
+            for(int j = 0; j < str.Lenght; j++)
+            {
+                if (checkedStr.Contains(str[j]))
+                {
+                    continue;
+                }
+                for(int k = 0 + j; k < str.Length; k++)
+                {
+                    if (!checkedStr.Contains(str[j]))
+                    {
+                        checkedStr.Add(str[j]);
+                    }
+                    if (str[j] == str[k])
+                    {
+                        mass[iM] += str[j];
+                    }
+                }
+                ++iM;
+            }
+
+            for(int i = 0; i<mass.Length; i++)
+            {
+                for(int j = 0; j < mass.Length; j++)
+                {
+                    if (mass[j].Length < mass [i].Length)
+                    {
+                        var c = mass[i];
+                        mass[i] = mass[j];
+                        mass[j] = c;
+                    }
+                    else if (mass [j].Length == mass[i][0])
+                    {
+                        if(mass[j][0] < mass[i][0])
+                        {
+                            var c = mass[i];
+                            mass[i] = mass[j];
+                            mass[j] = c;
+                        }
+                    }
+                }
+            }
+            foreach (var i in mass)
+                Console.WriteLine(i);
+        }
+    }
+}
 
